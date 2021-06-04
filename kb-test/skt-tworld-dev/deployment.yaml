@@ -22,7 +22,7 @@ spec:
       name: testnginx
     spec:
       containers:
-      - image: "tworld-registry.skt.cloudzcp.com/kb-test/nginx:latest-6"
+      - image: "tworld-registry.skt.cloudzcp.com/kb-test/nginx:latest-7"
         imagePullPolicy: Always
         name: testnginx
         ports:
