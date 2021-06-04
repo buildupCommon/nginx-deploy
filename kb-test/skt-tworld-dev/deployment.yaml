@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    cloudzcp.io/realm: tworld
+    cloudzcp.io/project: tworld-biz
+    cloudzcp.io/zcpapplication: testnginx
+  name: testnginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      cloudzcp.io/realm: tworld
+      cloudzcp.io/project: tworld-biz
+      cloudzcp.io/zcpapplication: testnginx
+  template:
+    metadata:
+      labels:
+        cloudzcp.io/realm: tworld
+        cloudzcp.io/project: tworld-biz
+        cloudzcp.io/zcpapplication: testnginx
+      name: testnginx
+    spec:
+      containers:
+      - image: "tworld-registry.skt.cloudzcp.com/kb-test/nginx:latest-3"
+        imagePullPolicy: Always
+        name: testnginx
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits: {}
+          requests: {}
+      imagePullSecrets:
+      - name: kb-harbor-robot
