@@ -25,5 +25,12 @@ spec:
       - image: "tworld-registry.skt.cloudzcp.com/kb-test/nginx:latest-6"
         imagePullPolicy: Always
         name: testnginx
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits: {}
+          requests: {}
       imagePullSecrets:
       - name: kb-harbor-robot
